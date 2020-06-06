@@ -3,7 +3,9 @@ package com.codegym.book.service.product;
 import com.codegym.book.model.Product;
 import com.codegym.book.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ProductImpl implements ProductService{
     @Autowired
     ProductRepository productRepository;
