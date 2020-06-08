@@ -16,7 +16,7 @@ public class BookController {
     @Autowired
     BookService bookService;
 
-    @RequestMapping("/api/books")
+    @GetMapping("/api/books")
     public ResponseEntity<List<Book>>  getList(){
         List<Book> bookList =(List<Book>) bookService.getList();
         return new ResponseEntity<>(bookList, HttpStatus.OK);
@@ -29,11 +29,13 @@ public class BookController {
         return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
+
     @DeleteMapping("/api/books/{id}")
     public ResponseEntity<Void> DeleteBook(@PathVariable Long id ){
         bookService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
     @PutMapping("/api/books")
     public ResponseEntity<Book> updateBook(@RequestBody Book book){
         bookService.save(book);
